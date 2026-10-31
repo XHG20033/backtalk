@@ -44,7 +44,7 @@ jobs:
 
       # AGP downloads the SDK platform and NDK it needs if the runner lacks them.
       - name: Build debug APKs
-        run: ./gradlew assembleDebug --console=plain
+        run: ./gradlew -PtestBuild assembleDebug --console=plain
 
       # Only the phone flavor: the watch's braille keyboard is a stub, so the braille keyboard's
       # tests don't compile for it, and the rest of the code is shared.
