@@ -43,57 +43,16 @@ jobs:
           fi
 
       # AGP downloads the SDK platform and NDK it needs if the runner lacks them.
-      - name: Build debug APKs
-        run: ./gradlew -PtestBuild assembleDebug --console=plain
-
-      # Only the phone flavor: the watch's braille keyboard is a stub, so the braille keyboard's
-      # tests don't compile for it, and the rest of the code is shared.
-      - name: Run unit tests
-        run: ./gradlew testPhoneDebugUnitTest --console=plain
-
-      # The app's lint also checks the library modules. Issues already in lint-baseline.xml are
-      # allowed, so this fails only on new errors, such as a call that needs a newer Android than
-      # minSdk without a version check. The watch is linted too: it has code of its own and a
-      # higher minSdk, and the baseline covers both.
-      - name: Run lint
-        run: ./gradlew :lintPhoneDebug :lintWearDebug --console=plain
-
-      - uses: actions/upload-artifact@v7
-        if: failure()
-        with:
-          name: test-reports
-          path: |
-            **/build/reports/tests/
-            build/reports/lint-results-phoneDebug.html
-            build/reports/lint-results-wearDebug.html
-
-      # The phone build with ML Kit's text recognition model, for phones without Google Play
-      # services. It is built last, so that the tests and lint above check the usual build, and
-      # the usual phone APK is kept aside while it is built in the same place.
-      - name: Build the APK without Play services
-        run: |
-          cp build/outputs/apk/phone/debug/backtalk-phone-debug.apk "$RUNNER_TEMP/"
-          ./gradlew :assemblePhoneDebug -PbundledOcr --console=plain
-          mkdir -p build/outputs/apk/nogms
-          mv build/outputs/apk/phone/debug/backtalk-phone-debug.apk build/outputs/apk/nogms/backtalk-nogms-debug.apk
-          cp "$RUNNER_TEMP/backtalk-phone-debug.apk" build/outputs/apk/phone/debug/
+      # Scratch branch: phone flavor only, no tests/lint/nogms -- a fast lane for
+      # verifying translations on a device. The full checks still run on upstream
+      # CI when a pull request is reviewed.
+      - name: Build the phone debug APK
+        run: ./gradlew -PtestBuild :assemblePhoneDebug --console=plain
 
       - uses: actions/upload-artifact@v7
         with:
           name: apk-phone
           path: build/outputs/apk/phone/debug/backtalk-phone-debug.apk
-          if-no-files-found: error
-
-      - uses: actions/upload-artifact@v7
-        with:
-          name: apk-wear
-          path: build/outputs/apk/wear/debug/backtalk-wear-debug.apk
-          if-no-files-found: error
-
-      - uses: actions/upload-artifact@v7
-        with:
-          name: apk-nogms
-          path: build/outputs/apk/nogms/backtalk-nogms-debug.apk
           if-no-files-found: error
 
   # Replaces the rolling "dev" pre-release that the in-app updater checks. The first line of the
