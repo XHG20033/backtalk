@@ -18,7 +18,7 @@
   <string name="keyboard_tutorial_system_navigation_page_title">系统导航</string>
   <string name="keyboard_tutorial_system_navigation_page_text">如果您现在尝试这些键盘快捷键，将关闭教程。建议您等到完成教程后再尝试。\n\n如要在打开的应用窗口和系统元素（例如通知和任务栏）之间跳转，请按快捷操作按键 + Alt + Ctrl + 向上键/向下键。\n\n如要打开应用列表，请按快捷操作按键。\n\n如要前往主屏幕并最小化所有打开的窗口，请按快捷操作按键 + H 或顶行中的 Home。\n\n如要前往最近用过的应用，请按快捷操作按键 + Tab 或顶行中的概览键。\n\n如要在各窗口之间快速跳转，请在按住 Alt 的同时按 Tab。\n\n如要返回，请按快捷操作按键 + Esc 或顶行中的 Back。\n\n如要打开通知，请按快捷操作按键 + N。</string>
   <string name="keyboard_tutorial_speech_settings_page_title">调整语音设置</string>
-  <string name="keyboard_tutorial_speech_settings_page_text">TalkBack 语音的音量称为无障碍功能音量，与媒体音量分开调节。\n\n如要调节无障碍功能音量，请按快捷操作按键 + 音量调高或调低按钮。\n\n如要调节语速，请按快捷操作按键 + Ctrl + 音量调高按钮调高语速，或按快捷操作按键 + Ctrl + 音量调低按钮调低语速。\n\n如要随时停止朗读，请按 Ctrl。</string>
+  <string name="keyboard_tutorial_speech_settings_page_text">TalkBack 语音的音量称为无障碍音量，与媒体音量分开调节。\n\n如要调节无障碍音量，请按快捷操作按键 + 音量调高或调低按钮。\n\n如要调节语速，请按快捷操作按键 + Ctrl + 音量调高按钮调高语速，或按快捷操作按键 + Ctrl + 音量调低按钮调低语速。\n\n如要随时停止朗读，请按 Ctrl。</string>
   <string name="keyboard_tutorial_more_keyboard_shortcuts_page_title">TalkBack 菜单和更多键盘快捷键</string>
   <string name="keyboard_tutorial_more_keyboard_shortcuts_page_text">TalkBack 菜单包含您可能经常会用到的设置和控件。\n\n如要打开 TalkBack 菜单，请按快捷操作按键 + Ctrl + M。您可以在 TalkBack 设置中自定义 TalkBack 菜单和朗读控件。\n\nTalkBack 键盘快捷键菜单包含您可以使用的所有键盘快捷键。\n\n如要打开键盘快捷键菜单，请按快捷操作按键 + Shift + /。\n\n如要详细了解键盘并练习使用键盘快捷键，请按快捷操作按键 + 0 打开练习界面。</string>
   <string name="keyboard_tutorial_finished_page_title">设置完毕！</string>
